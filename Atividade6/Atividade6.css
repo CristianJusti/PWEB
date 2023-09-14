@@ -1,0 +1,59 @@
+
+h1 {
+    font-style: bold 100% Arial, Helvetica, sans-serif;
+}
+
+#Cor {
+    width: 500px;
+    height: 500px;
+}
+
+@media only screen and (min-width: 1367px) {
+	
+	#Cor {
+        background-color: yellow;
+    }
+        h1::after {
+        content: "Amarelo";
+	}
+
+}
+
+@media only screen and (min-width: 1025px) and (max-width: 1366px) {
+
+    #Cor {
+        background-color: rebeccapurple;
+    }
+    h1::after {
+        content: "Roxo";
+    }
+}
+
+@media only screen and (min-width: 769px) and (max-width: 1024px) {
+
+    #Cor {
+        background-color: violet;
+    }
+    h1::after {
+        content: "Rosa";
+    }
+}
+
+@media only screen and (min-width: 421px) and (max-width: 768px) {
+
+    #Cor {
+        background-color: Orange;
+        }
+        h1::after {
+            content: "Laranja"
+    }
+}
+
+@media only screen and (min-width: 0px) and (max-width: 420px) {
+    #Cor {
+        background-color: gray;
+    }
+    h1::after {
+        content: "Cinza";
+    }
+}
