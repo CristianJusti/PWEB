@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Jogo de Pedra, Papel e Tesoura</title>
+    <link rel="stylesheet" type="text/css" href="jogo.css">
+</head>
+
+<body>
+    <h1>Jogo de Pedra, Papel e Tesoura</h1>
+    <div class="botoes">
+        <button class="pedra" onclick="jogar('pedra')"></button>
+        <button class="papel" onclick="jogar('papel')"></button>
+        <button class="tesoura" onclick="jogar('tesoura')"></button>
+    </div>
+    <p id="resultado"></p>
+
+    <script>
+        function jogar(escolhaUsuario) {
+            const opcoes = ['pedra', 'papel', 'tesoura'];
+            const indiceAleatorio = Math.floor(Math.random() * 3);
+            const escolhaComputador = opcoes[indiceAleatorio];
+
+            const resultado = determinarVencedor(escolhaUsuario, escolhaComputador);
+
+            const resultadoElement = document.getElementById('resultado');
+            resultadoElement.textContent = `Você escolheu ${escolhaUsuario}. O computador escolheu ${escolhaComputador}. ${resultado}`;
+        }
+
+        function determinarVencedor(usuario, computador) {
+            if (usuario === computador) {
+                return 'Empate!';
+            } else if (
+                (usuario === 'pedra' && computador === 'tesoura') ||
+                (usuario === 'tesoura' && computador === 'papel') ||
+                (usuario === 'papel' && computador === 'pedra')
+            ) {
+                return 'Você ganhou!';
+            } else {
+                return 'O computador ganhou!';
+            }
+        }
+    </script>
+</body>
+
+</html>

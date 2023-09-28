@@ -1,0 +1,61 @@
+body {
+    font-family: Arial, sans-serif;
+    text-align: center;
+    background-color: purple
+  }
+
+  h1 {
+    color: cyan;
+  }
+
+  .clear {
+    clear: both;
+    }
+    
+  footer {
+    font-size: 12px;
+    text-align: center;
+    color: cyan
+    }
+
+  .botoes {
+    display: flex;
+    justify-content: center;
+    margin-top: 50px;
+    margin-bottom: 50px;
+  }
+
+  button {
+    padding: 10px;
+    margin: 30px;
+    border: 3px solid cyan;
+    border-radius: 5px;
+    cursor: pointer;
+  }
+
+  .pedra {
+    background-image: url('pedra.jpg');
+    background-size: cover;
+    width: 230px;
+    height: 210px;
+  }
+
+  .papel {
+    background-image: url('papel.jpg');
+    background-size: cover;
+    width: 230px;
+    height: 210px;
+  }
+
+  .tesoura {
+    background-image: url('tesoura.jpg');
+    background-size: cover;
+    width: 230px;
+    height: 210px;
+  }
+
+  #resultado {
+    font-size: 28px;
+    margin-top: 20px;
+    color: cyan;
+  }
