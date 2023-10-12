@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Pesquisa</title>
+
+    <script>
+        const idades = [];
+        const sexos = [];
+        const opinioes = [];
+
+        function calcularMediaIdade(idades) {
+            const totalIdades = idades.reduce((acc, idade) => acc + idade, 0);
+            return totalIdades / idades.length;
+        }
+
+        function calcularIdadeMaisVelha(idades) {
+            return Math.max(...idades);
+        }
+
+        function calcularIdadeMaisNova(idades) {
+            return Math.min(...idades);
+        }
+
+        function contarPessimo(opinioes) {
+            return opinioes.filter(opiniao => opiniao === 1).length;
+        }
+
+        function calcularPorcentagemOtimoBom(opinioes) {
+            const otimoBomCount = opinioes.filter(opiniao => opiniao === 4 || opiniao === 3).length;
+            return (otimoBomCount / opinioes.length) * 100;
+        }
+
+        function contarMulheresHomens(sexos) {
+            const mulheres = sexos.filter(sexo => sexo === 'feminino').length;
+            const homens = sexos.filter(sexo => sexo === 'masculino').length;
+            return { mulheres, homens };
+        }
+
+        for (let i = 0; i < 45; i++) {
+            const idade = parseInt(prompt(`Digite a idade da pessoa ${i + 1}:`));
+            const sexo = prompt(`Digite o sexo da pessoa ${i + 1} (masculino ou feminino):`);
+            const opiniao = parseInt(prompt(`Digite a opinião da pessoa ${i + 1} (1 = péssimo, 2 = regular, 3 = bom, 4 = ótimo):`));
+
+            idades.push(idade);
+            sexos.push(sexo);
+            opinioes.push(opiniao);
+        }
+
+        const mediaIdade = calcularMediaIdade(idades);
+        const idadeMaisVelha = calcularIdadeMaisVelha(idades);
+        const idadeMaisNova = calcularIdadeMaisNova(idades);
+        const pessimoCount = contarPessimo(opinioes);
+        const porcentagemOtimoBom = calcularPorcentagemOtimoBom(opinioes);
+        const { mulheres, homens } = contarMulheresHomens(sexos);
+
+        document.write(`<p>Média de idade: ${mediaIdade}</p>`);
+        document.write(`<p>Idade mais velha: ${idadeMaisVelha}</p>`);
+        document.write(`<p>Idade mais nova: ${idadeMaisNova}</p>`);
+        document.write(`<p>Quantidade de pessoas que responderam péssimo: ${pessimoCount}</p>`);
+        document.write(`<p>Porcentagem de pessoas que responderam ótimo e bom: ${porcentagemOtimoBom}%</p>`);
+        document.write(`<p>Número de mulheres: ${mulheres}</p>`);
+        document.write(`<p>Número de homens: ${homens}</p>`);
+    </script>
+    </body>
+
+</html>
