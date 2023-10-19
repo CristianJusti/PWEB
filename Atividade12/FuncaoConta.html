@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>FuncaoConta</title>
+</head>
+
+<body>
+    <h1>Contas Bancárias</h1>
+
+    <script>
+        function Conta(nomeCorrentista, banco, numeroConta, saldo, dataVencimento) {
+            this.nomeCorrentista = nomeCorrentista;
+            this.banco = banco;
+            this.numeroConta = numeroConta;
+            this.saldo = saldo;
+            this.dataVencimento = dataVencimento;
+
+            this.getSaldo = function () {
+                return this.saldo;
+            };
+
+            this.setSaldo = function (novoSaldo) {
+                this.saldo = novoSaldo;
+            };
+        }
+
+        var nomeCorrentistaCorrente = prompt("Digite o nome do correntista da Conta Corrente:");
+        var bancoCorrente = prompt("Digite o nome do banco da Conta Corrente:");
+        var numeroContaCorrente = prompt("Digite o número da conta da Conta Corrente:");
+        var saldoCorrente = parseFloat(prompt("Digite o saldo da Conta Corrente:"));
+        var dataVencimentoCorrente = prompt("Digite a data de vencimento da Conta Corrente:");
+
+        var contaCorrente = new Conta(nomeCorrentistaCorrente, bancoCorrente, numeroContaCorrente, saldoCorrente, dataVencimentoCorrente);
+
+        var nomeCorrentistaPoupanca = prompt("Digite o nome do correntista da Conta Poupança:");
+        var bancoPoupanca = prompt("Digite o nome do banco da Conta Poupança:");
+        var numeroContaPoupanca = prompt("Digite o número da conta da Conta Poupança:");
+        var saldoPoupanca = parseFloat(prompt("Digite o saldo da Conta Poupança:"));
+        var dataVencimentoPoupanca = prompt("Digite a data de vencimento da Conta Poupança:");
+
+        var contaPoupanca = new Conta(nomeCorrentistaPoupanca, bancoPoupanca, numeroContaPoupanca, saldoPoupanca, dataVencimentoPoupanca);
+
+        document.write("<h2>Conta Corrente:</h2>");
+        document.write("Nome do Correntista: " + contaCorrente.nomeCorrentista + "<br>");
+        document.write("Banco: " + contaCorrente.banco + "<br>");
+        document.write("Número da Conta: " + contaCorrente.numeroConta + "<br>");
+        document.write("Saldo: R$" + contaCorrente.getSaldo() + "<br>");
+        document.write("Data de Vencimento: " + contaCorrente.dataVencimento + "<br>");
+
+        document.write("<h2>Conta Poupança com Juros:</h2>");
+        document.write("Nome do Correntista: " + contaPoupanca.nomeCorrentista + "<br>");
+        document.write("Banco: " + contaPoupanca.banco + "<br>");
+        document.write("Número da Conta: " + contaPoupanca.numeroConta + "<br>");
+        document.write("Saldo: R$" + contaPoupanca.getSaldo() + "<br>");
+        document.write("Data de Vencimento: " + contaPoupanca.dataVencimento + "<br>");
+    </script>
+</body>
+
+</html>
