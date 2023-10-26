@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Janelas</title>
+
+    <head>
+        <style>
+            body {
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                height: 100vh;
+                margin: 0;
+            }
+
+            .container {
+                text-align: center;
+            }
+
+            .image {
+                display: inline-block;
+            }
+
+            h1 {
+                text-align: center;
+            }
+        </style>
+    </head>
+
+<body>
+    <div class="container">
+        <img class="image" id="window" src="janela-fechada.jpg" alt="Janela Fechada" width="200">
+        <h1 id="status">Janela fechada</h1>
+    </div>
+
+    <script>
+        const windowImage = document.getElementById("window");
+        const statusText = document.getElementById("status");
+
+        let isOpen = false;
+        let isBroken = false;
+
+        function updateWindow() {
+            if (isBroken) return;
+
+            if (!isOpen) {
+                windowImage.src = "janela-aberta.png";
+                statusText.textContent = "Janela aberta";
+            } else {
+                windowImage.src = "janela-fechada.png";
+                statusText.textContent = "Janela fechada";
+            }
+            isOpen = !isOpen;
+        }
+
+        windowImage.addEventListener("mouseenter", updateWindow);
+        windowImage.addEventListener("mouseleave", updateWindow);
+        windowImage.addEventListener("dblclick", () => {
+            if (!isBroken) {
+                windowImage.src = "janela-quebrada.png";
+                statusText.textContent = "Janela quebrada";
+                isOpen = false;
+                isBroken = true;
+            }
+        });
+    </script>
+</body>
+
+</html>
