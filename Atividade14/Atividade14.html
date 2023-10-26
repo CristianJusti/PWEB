@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Transforma caracteres</title>
+
+    <head>
+    </head>
+
+<body>
+    <input type="text" id="inputText" placeholder="Digite o texto">
+    <input type="checkbox" id="uppercaseCheckbox"> Transformar em Maiúsculas
+    <input type="checkbox" id="lowercaseCheckbox"> Transformar em Minúsculas
+
+    <script>
+        const inputText = document.getElementById("inputText");
+        const uppercaseCheckbox = document.getElementById("uppercaseCheckbox");
+        const lowercaseCheckbox = document.getElementById("lowercaseCheckbox");
+
+        uppercaseCheckbox.addEventListener("change", () => {
+            inputText.value = inputText.value.toUpperCase();
+        });
+
+        lowercaseCheckbox.addEventListener("change", () => {
+            inputText.value = inputText.value.toLowerCase();
+        });
+    </script>
+</body>
+
+</html>
