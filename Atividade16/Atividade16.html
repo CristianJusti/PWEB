@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Escolha um Curso</title>
+    <link rel="stylesheet" type="text/css" href="estilo.css">
+</head>
+
+<body>
+    <label for="cursos">Escolha um curso:</label>
+    <select id="cursos">
+        <option value="">Selecione um curso</option>
+        <option value="ads">Análise e Desenvolvimento de Sistemas</option>
+        <option value="log">Logística</option>
+        <option value="sb">Sistemas Biomédicos</option>
+        <option value="pol">Polímeros</option>
+
+    </select>
+
+    <script>
+        document.getElementById("cursos").onchange = function () {
+            var selectedCourse = this.value;
+            if (selectedCourse === "") {
+                return; // Nenhum curso selecionado
+            }
+
+            var courseName = this.options[this.selectedIndex].text;
+            var courseDescription = "";
+
+            // Defina a descrição do curso com base na opção selecionada
+            switch (selectedCourse) {
+                case "ads":
+                    courseDescription = "Análise e Desenvolvimento de Sistemas é um curso focado no desenvolvimento de software.";
+                    break;
+                case "log":
+                    courseDescription = "Logística é o estudo e gerenciamento eficiente de cadeias de suprimentos e transportes.";
+                    break;
+                case "sb":
+                    courseDescription = "Sistemas Biomédicos combina engenharia e ciências da saúde para desenvolver soluções em saúde.";
+                    break;
+                case "pol":
+                    courseDescription = "Polímeros é o estudo dos materiais plásticos e suas aplicações na indústria.";
+                    break;
+            }
+
+            var width = 600;
+            var height = 300;
+
+            // Abrir uma nova janela com as informações do curso
+            var newWindow = window.open("", courseName, "width=" + width + ",height=" + height);
+            newWindow.document.write("<h2>" + courseName + "</h2>");
+            newWindow.document.write("<p>" + courseDescription + "</p>");
+            newWindow.focus();
+        };
+    </script>
+</body>
+
+</html>
